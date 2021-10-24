@@ -27,8 +27,8 @@ include "includes/header.php"; ?>
             $result = mysqli_query($conn, $query);
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<li class="list-group-item">' . $row['todo_content'] . '<a class="btn btn-danger m-2" style="float:right;" href="delete.php?todo_id=' . $row['todo_id'] . '">Delete</a> 
-                    <a href="edit.php?todo_id=' . $row['todo_id'] . '"  style="float:right;"  class="btn btn-secondary m-2" >Edit</a>';
+                    echo '<li class="list-group-item">' . htmlspecialchars($row['todo_content']). '<a class="btn btn-danger m-2" style="float:right;" href="delete.php?todo_id=' . htmlspecialchars($row['todo_id']) . '">Delete</a> 
+                    <a href="edit.php?todo_id=' . htmlspecialchars($row['todo_id']). '"  style="float:right;"  class="btn btn-secondary m-2" >Edit</a>';
                 }
             }
 
